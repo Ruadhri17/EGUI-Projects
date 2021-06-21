@@ -1,0 +1,58 @@
+@model mvc.Models.IngredientView
+@{
+    ViewData["Title"] = "Add Recipe - Text";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <form asp-action="AddIngredient" asp-controller="Home">
+            <div class="mb-3">
+                <label for="ingredient.name" class="form-label">Ingredient Name</label>
+                <input asp-for="ingredient.name" type="text" class="form-control" id="ingredient.name" placeholder="Enter Ingredient Name" value =""required>
+            </div>
+            <div class="mb-3">
+                <label for="quantity" class="form-label">Ingredient Quantity (As Number)</label>
+                <input asp-for="quantity" type="text" inputmode="decimal" pattern="[0-9,.]+" class="form-control" id="quantity" placeholder="Enter Number"  value =""required>
+            </div>
+            <div class="mb-3">
+                <label for="ingredient.unit" class="form-label">Ingredient Unit</label>
+                <input asp-for="ingredient.unit" type="text" class="form-control" id="ingredient.unit" placeholder="Enter Ingredient Unit" value =""required>
+            </div> 
+            @if(ViewBag.message != null)
+            {
+                <div class="alert alert-danger" role="alert">@ViewBag.message</div>
+            }
+            <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+
+        </div>
+        <div class="col-6">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Unit</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var index = 0; index < Model.ingredients.Count(); index++)
+                    {
+                        <tr>
+                            <td>@Model.ingredients[index].name</td>
+                            <td>@Model.ingredients[index].quantity</td>
+                            <td>@Model.ingredients[index].unit</td>
+                            <td><a class="btn btn-danger" asp-action="DeleteIngredient" asp-route-id="@index">Delete</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button type="submit" class="btn btn-success" style="float: right;" onclick="location.href='@Url.Action("RecipeIngredient","Home")'">Save Recipe</button>
+        </div>
+    </div>
+</div>

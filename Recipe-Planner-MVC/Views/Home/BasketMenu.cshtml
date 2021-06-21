@@ -1,0 +1,79 @@
+@model mvc.Models.BasketView
+@{
+    ViewData["Title"] = "Add Recipe - Text";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <table>
+                <thead class="thead-dark">
+                    <colgroup>
+                        <col class="col-md-4">
+                        <col class="col-md-4">
+                    </colgroup>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(int index = 0; index < Model.available_recipes.Count(); index++)
+                    {
+                        <tr>
+                            <td>@Model.available_recipes[index].name</td>
+                            <td><a class="btn btn-success" asp-action="AddToBasket" asp-route-id="@index">Add</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+            <div class="col-6">
+            <table>
+                <thead class="thead-dark">
+                    <colgroup>
+                        <col class="col-md-4">
+                        <col class="col-md-4">
+                    </colgroup>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(int index = 0; index < Model.user_choice_recipes.Count(); index++)
+                    {
+                        <tr>
+                            <td>@Model.user_choice_recipes[index].name</td>
+                            <td><a class="btn btn-danger" asp-action="DeleteFromBasket" asp-route-id="@index">Delete</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>  
+    </div>
+    <div class="row">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(int index = 0; index < Model.user_choice_ingredient.Count(); index++)
+                    {
+                        <tr>
+                        <td>@Model.user_choice_ingredient[index].name</td>
+                        <td>@Model.user_choice_ingredient[index].quantity</td>
+                        <td>@Model.user_choice_ingredient[index].unit</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    <div class="row">
+        <button type="button" class="btn btn-primary" style="float: right;" onclick="location.href='@Url.Action("MainMenu","Home")'">Return</button>
+    </div>
+</div>     
+       

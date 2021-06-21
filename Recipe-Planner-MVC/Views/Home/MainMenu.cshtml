@@ -1,0 +1,33 @@
+﻿@model List<mvc.Models.Recipe>
+@{
+    ViewData["Title"] = "Recipe Manager";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Recipe Name</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(var index = 0; index < Model.Count(); index++)
+                    {
+                        <tr>
+                            <td>@Model[index].name</td>
+                            <td>
+                                <a class="btn btn-success" asp-action="EditRecipe" asp-route-id="@index" >Edit</a> 
+                                <a class="btn btn-danger" asp-action="DeleteRecipe" asp-route-id="@index">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("RecipeText","Home")'">Add New Recipe</button>
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("BasketMenu","Home")'">Basket Menu</button>
+        </div>
+    </div>
+
+</div>

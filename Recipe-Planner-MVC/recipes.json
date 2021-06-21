@@ -1,0 +1,31 @@
+{
+  "omlette ": {
+    "recipe": [
+      "Whisk eggs, water, salt and pepper.\r",
+      "Spray 8-inch (20 cm) non-stick skillet with cooking spray. ...\r",
+      "When eggs are almost set on surface but still look moist, cover half of omelette with filling. ...\r",
+      "Cook for a minute, then slide omelette onto plate.\r",
+      "(Nutrients per serving as per without filling)"
+    ],
+    "egg": "2 pcs ",
+    "water": "0.03 l",
+    "salt": "1 pinch"
+  },
+  "pizza": {
+    "recipe": [
+      "Preheat oven to 450 degrees F (230 degrees C).\r",
+      "In a medium bowl, dissolve yeast and sugar in warm water.\r",
+      "Let stand until creamy, about 10 minutes.\r",
+      "Stir in flour, salt and oil. Beat until smooth. Let rest for 5 minutes.\r",
+      "Turn dough out onto a lightly floured surface and pat or roll into a round.\r",
+      "Transfer crust to a lightly greased pizza pan or baker\u0027s peel dusted with cornmeal.\r",
+      "Spread with desired toppings and bake in preheated oven for 15 to 20 minutes, or until golden brown.\r",
+      "Let baked pizza cool for 5 minutes before serving."
+    ],
+    "egg": "1 pcs",
+    "flour": "2.5 cups",
+    "salt": "1 teaspoon",
+    "olive oil": "2 tablespoons",
+    "active dry yeast": "0.25 ounce"
+  }
+}
